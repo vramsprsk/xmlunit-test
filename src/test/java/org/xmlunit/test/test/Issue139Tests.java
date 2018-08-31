@@ -7,7 +7,7 @@ import org.xmlunit.matchers.CompareMatcher;
 
 import static org.junit.Assert.assertThat;
 
-
+//https://github.com/xmlunit/xmlunit/issues/139
 public class Issue139Tests {
 
     @Test
