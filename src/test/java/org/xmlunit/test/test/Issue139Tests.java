@@ -1,5 +1,6 @@
 package org.xmlunit.test.test;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.diff.ComparisonControllers;
@@ -7,6 +8,10 @@ import org.xmlunit.diff.DefaultNodeMatcher;
 import org.xmlunit.diff.Diff;
 import org.xmlunit.diff.ElementSelectors;
 import org.xmlunit.matchers.CompareMatcher;
+import org.xmlunit.test.test.data.TestData;
+import org.xmlunit.test.test.data.TestDataLoader;
+
+import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -15,90 +20,19 @@ import static org.junit.Assert.assertThat;
 //https://github.com/xmlunit/xmlunit/issues/139
 public class Issue139Tests {
 
-    private static final String test1 = "" +
-        "<PACKINGS>\n" +
-        "    <PACKING>\n" +
-        "        <ORDERNUM>810000510</ORDERNUM>\n" +
-        "        <SVCTAGS>\n" +
-        "            <SVCTAG>\n" +
-        "                <WIDTH>5</WIDTH>\n" +
-        "                <SVCTAGTYPE>DRAGON</SVCTAGTYPE>\n" +
-        "                <TIENUMBER>1</TIENUMBER>\n" +
-        "                <SVCTAGNUMBER>768100005105001</SVCTAGNUMBER>\n" +
-        "                <HEIGHT>10</HEIGHT>\n" +
-        "                <PARTS>\n" +
-        "                    <PART>\n" +
-        "                        <PARTQTY>10</PARTQTY>\n" +
-        "                        <PARTNUMBER>RKH5D</PARTNUMBER>\n" +
-        "                    </PART>\n" +
-        "                </PARTS>\n" +
-        "                <BOXID>768100005105001</BOXID>\n" +
-        "                <LENGTH>4</LENGTH>\n" +
-        "            </SVCTAG>\n" +
-        "            <SVCTAG>\n" +
-        "                <SVCTAGNUMBER>768100005105002</SVCTAGNUMBER>\n" +
-        "                <PARTS>\n" +
-        "                    <PART>\n" +
-        "                        <PARTNUMBER>FHMTN</PARTNUMBER>\n" +
-        "                        <PARTQTY>10</PARTQTY>\n" +
-        "                    </PART>\n" +
-        "                </PARTS>\n" +
-        "                <BOXID>768100005105002</BOXID>\n" +
-        "                <SVCTAGTYPE>DRAGON</SVCTAGTYPE>\n" +
-        "                <TIENUMBER>2</TIENUMBER>\n" +
-        "                <WIDTH>5</WIDTH>\n" +
-        "                <LENGTH>4</LENGTH>\n" +
-        "                <HEIGHT>10</HEIGHT>\n" +
-        "            </SVCTAG>\n" +
-        "        </SVCTAGS>\n" +
-        "        <TYPE>CCST</TYPE>\n" +
-        "    </PACKING>\n" +
-        "</PACKINGS>";
+    private static Map<String, TestData> allTestData;
 
-    private static final String test2 = "" +
-        "<PACKINGS>\n" +
-        "    <PACKING>\n" +
-        "        <TYPE>CCST</TYPE>\n" +
-        "        <ORDERNUM>810000510</ORDERNUM>\n" +
-        "        <SVCTAGS>\n" +
-        "            <SVCTAG>\n" +
-        "                <SVCTAGTYPE>DRAGON</SVCTAGTYPE>\n" +
-        "                <SVCTAGNUMBER>768100005105002</SVCTAGNUMBER>\n" +
-        "                <TIENUMBER>2</TIENUMBER>\n" +
-        "                <BOXID>768100005105002</BOXID>\n" +
-        "                <LENGTH>4</LENGTH>\n" +
-        "                <WIDTH>5</WIDTH>\n" +
-        "                <HEIGHT>10</HEIGHT>\n" +
-        "                <PARTS>\n" +
-        "                    <PART>\n" +
-        "                        <PARTNUMBER>FHMTN</PARTNUMBER>\n" +
-        "                        <PARTQTY>10</PARTQTY>\n" +
-        "                    </PART>\n" +
-        "                </PARTS>\n" +
-        "            </SVCTAG>\n" +
-        "            <SVCTAG>\n" +
-        "                <SVCTAGTYPE>DRAGON</SVCTAGTYPE>\n" +
-        "                <SVCTAGNUMBER>768100005105001</SVCTAGNUMBER>\n" +
-        "                <TIENUMBER>1</TIENUMBER>\n" +
-        "                <BOXID>768100005105001</BOXID>\n" +
-        "                <LENGTH>4</LENGTH>\n" +
-        "                <WIDTH>5</WIDTH>\n" +
-        "                <HEIGHT>10</HEIGHT>\n" +
-        "                <PARTS>\n" +
-        "                    <PART>\n" +
-        "                        <PARTNUMBER>RKH5D</PARTNUMBER>\n" +
-        "                        <PARTQTY>10</PARTQTY>\n" +
-        "                    </PART>\n" +
-        "                </PARTS>\n" +
-        "            </SVCTAG>\n" +
-        "        </SVCTAGS>\n" +
-        "    </PACKING>\n" +
-        "</PACKINGS>";
+    @BeforeClass
+    public static void setUp() {
+        allTestData = TestDataLoader.load("issue139.properties");
+    }
 
     @Test
     public void test() {
 
-        assertThat(test1, CompareMatcher.isSimilarTo(test2)
+        TestData data = allTestData.get("test1");
+
+        assertThat(data.testXml, CompareMatcher.isSimilarTo(data.testXml)
             .ignoreWhitespace()
             .normalizeWhitespace()
             .withNodeMatcher(new DefaultNodeMatcher(
@@ -113,7 +47,9 @@ public class Issue139Tests {
     @Test
     public void testUsingDiffBuilder() {
 
-        Diff diff =  DiffBuilder.compare(test2).withTest(test1)
+        TestData data = allTestData.get("test1");
+
+        Diff diff =  DiffBuilder.compare(data.controlXml).withTest(data.testXml)
             .ignoreWhitespace()
             .normalizeWhitespace()
             .withNodeMatcher(new DefaultNodeMatcher(
@@ -131,4 +67,5 @@ public class Issue139Tests {
 
         assertThat(hasDifferences, is(equalTo(false)));
     }
+
 }
