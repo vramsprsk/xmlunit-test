@@ -18,40 +18,40 @@ public class Issue139Tests {
     private static final String test1 = "" +
         "<PACKINGS>\n" +
         "    <PACKING>\n" +
-        "        <TYPE>CCST</TYPE>\n" +
         "        <ORDERNUM>810000510</ORDERNUM>\n" +
         "        <SVCTAGS>\n" +
         "            <SVCTAG>\n" +
-        "                <SVCTAGTYPE>DRAGON</SVCTAGTYPE>\n" +
-        "                <SVCTAGNUMBER>768100005105001</SVCTAGNUMBER>\n" +
-        "                <TIENUMBER>1</TIENUMBER>\n" +
-        "                <BOXID>768100005105001</BOXID>\n" +
-        "                <LENGTH>4</LENGTH>\n" +
         "                <WIDTH>5</WIDTH>\n" +
+        "                <SVCTAGTYPE>DRAGON</SVCTAGTYPE>\n" +
+        "                <TIENUMBER>1</TIENUMBER>\n" +
+        "                <SVCTAGNUMBER>768100005105001</SVCTAGNUMBER>\n" +
         "                <HEIGHT>10</HEIGHT>\n" +
         "                <PARTS>\n" +
         "                    <PART>\n" +
-        "                        <PARTNUMBER>RKH5D</PARTNUMBER>\n" +
         "                        <PARTQTY>10</PARTQTY>\n" +
+        "                        <PARTNUMBER>RKH5D</PARTNUMBER>\n" +
         "                    </PART>\n" +
         "                </PARTS>\n" +
+        "                <BOXID>768100005105001</BOXID>\n" +
+        "                <LENGTH>4</LENGTH>\n" +
         "            </SVCTAG>\n" +
         "            <SVCTAG>\n" +
-        "                <SVCTAGTYPE>DRAGON</SVCTAGTYPE>\n" +
         "                <SVCTAGNUMBER>768100005105002</SVCTAGNUMBER>\n" +
-        "                <TIENUMBER>2</TIENUMBER>\n" +
-        "                <BOXID>768100005105002</BOXID>\n" +
-        "                <LENGTH>4</LENGTH>\n" +
-        "                <WIDTH>5</WIDTH>\n" +
-        "                <HEIGHT>10</HEIGHT>\n" +
         "                <PARTS>\n" +
         "                    <PART>\n" +
         "                        <PARTNUMBER>FHMTN</PARTNUMBER>\n" +
         "                        <PARTQTY>10</PARTQTY>\n" +
         "                    </PART>\n" +
         "                </PARTS>\n" +
+        "                <BOXID>768100005105002</BOXID>\n" +
+        "                <SVCTAGTYPE>DRAGON</SVCTAGTYPE>\n" +
+        "                <TIENUMBER>2</TIENUMBER>\n" +
+        "                <WIDTH>5</WIDTH>\n" +
+        "                <LENGTH>4</LENGTH>\n" +
+        "                <HEIGHT>10</HEIGHT>\n" +
         "            </SVCTAG>\n" +
         "        </SVCTAGS>\n" +
+        "        <TYPE>CCST</TYPE>\n" +
         "    </PACKING>\n" +
         "</PACKINGS>";
 
