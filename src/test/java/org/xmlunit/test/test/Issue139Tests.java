@@ -67,7 +67,7 @@ public class Issue139Tests {
                         .elseUse(ElementSelectors.byName)
                         .build()
                 ))
-                .withComparisonController(ComparisonControllers.StopWhenSimilar)
+                .withComparisonController(ComparisonControllers.StopWhenDifferent)
                 .checkForSimilar()
                 .build();
 
