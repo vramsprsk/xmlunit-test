@@ -36,6 +36,9 @@ public class TestDataLoader {
                     else if (controlKey.equalsIgnoreCase(split[1])) {
                         testData.controlXml = xml;
                     }
+                    else {
+                        System.out.printf("WARN: Not found \"%s\" or \"%s\" in \"%s\" property key", testKey, controlKey, key);
+                    }
                 }
             }
 

@@ -11,6 +11,7 @@ import org.xmlunit.matchers.CompareMatcher;
 import org.xmlunit.test.test.data.TestData;
 import org.xmlunit.test.test.data.TestDataLoader;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -30,42 +31,51 @@ public class Issue139Tests {
     @Test
     public void test() {
 
-        TestData data = allTestData.get("test1");
+        TestData simpleData = allTestData.get("test1");
+        TestData mixedElementData = allTestData.get("mixedElements");
 
-        assertThat(data.testXml, CompareMatcher.isSimilarTo(data.testXml)
-            .ignoreWhitespace()
-            .normalizeWhitespace()
-            .withNodeMatcher(new DefaultNodeMatcher(
-                ElementSelectors.conditionalBuilder()
-                    .whenElementIsNamed("SVCTAG")
-                    .thenUse(ElementSelectors.byXPath("./SVCTAGNUMBER", ElementSelectors.byNameAndText))
-                    .elseUse(ElementSelectors.byName)
-                    .build()
-            )));
+        Arrays.asList(simpleData, mixedElementData).forEach(testData -> {
+
+            assertThat(testData.testXml, CompareMatcher.isSimilarTo(testData.testXml)
+                .ignoreWhitespace()
+                .normalizeWhitespace()
+                .withNodeMatcher(new DefaultNodeMatcher(
+                    ElementSelectors.conditionalBuilder()
+                        .whenElementIsNamed("SVCTAG")
+                        .thenUse(ElementSelectors.byXPath("./SVCTAGNUMBER", ElementSelectors.byNameAndText))
+                        .elseUse(ElementSelectors.byName)
+                        .build()
+                )));
+        });
     }
 
     @Test
     public void testUsingDiffBuilder() {
 
-        TestData data = allTestData.get("test1");
+        TestData simpleData = allTestData.get("test1");
+        TestData mixedElementData = allTestData.get("mixedElements");
 
-        Diff diff =  DiffBuilder.compare(data.controlXml).withTest(data.testXml)
-            .ignoreWhitespace()
-            .normalizeWhitespace()
-            .withNodeMatcher(new DefaultNodeMatcher(
-                ElementSelectors.conditionalBuilder()
-                    .whenElementIsNamed("SVCTAG")
-                    .thenUse(ElementSelectors.byXPath("./SVCTAGNUMBER", ElementSelectors.byNameAndText))
-                    .elseUse(ElementSelectors.byName)
-                    .build()
-            ))
-            .withComparisonController(ComparisonControllers.StopWhenSimilar)
-            .checkForSimilar()
-            .build();
+        Arrays.asList(simpleData, mixedElementData).forEach(testData -> {
 
-        boolean hasDifferences = diff.hasDifferences();
+            Diff diff = DiffBuilder.compare(testData.controlXml).withTest(testData.testXml)
+                .ignoreWhitespace()
+                .normalizeWhitespace()
+                .withNodeMatcher(new DefaultNodeMatcher(
+                    ElementSelectors.conditionalBuilder()
+                        .whenElementIsNamed("SVCTAG")
+                        .thenUse(ElementSelectors.byXPath("./SVCTAGNUMBER", ElementSelectors.byNameAndText))
+                        .elseUse(ElementSelectors.byName)
+                        .build()
+                ))
+                .withComparisonController(ComparisonControllers.StopWhenSimilar)
+                .checkForSimilar()
+                .build();
 
-        assertThat(hasDifferences, is(equalTo(false)));
+            boolean hasDifferences = diff.hasDifferences();
+
+            assertThat(hasDifferences, is(equalTo(false)));
+
+        });
     }
 
 }
