@@ -36,7 +36,7 @@ public class Issue139Tests {
 
         Arrays.asList(simpleData, mixedElementData).forEach(testData -> {
 
-            assertThat(testData.testXml, CompareMatcher.isSimilarTo(testData.testXml)
+            assertThat(testData.testXml, CompareMatcher.isSimilarTo(testData.controlXml)
                 .ignoreWhitespace()
                 .normalizeWhitespace()
                 .withNodeMatcher(new DefaultNodeMatcher(
