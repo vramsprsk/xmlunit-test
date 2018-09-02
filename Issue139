@@ -1,0 +1,200 @@
+Hello Kristyan, Here iam briefing the exact scenario where
+
+Scanario 1: i want to compare and Validate both the below 2 xml files end to end
+
+Note: the elements order will be different in my Order2.xml file.
+
+I need your assistance on the same
+
+Order1.xml 
+<ORDERS>
+    <ORDER>
+      <CUSID>5439</CUSID>
+      <CUSADDRESS>Unit A , 21/F , Phase III, YKK Building,No.7, San Ping Circuit, Tuen Mun, New Territories, Hong KongXMHK</CUSADDRESS>
+      <CUSCOUNTRY>HK</CUSCOUNTRY>
+      <CUSNAME>5439</CUSNAME>
+      <ORDERNUM>810000510</ORDERNUM>
+      <CITY>XMHK</CITY>
+      <SHIPDATE>2017-09-06 02:58:35</SHIPDATE>
+      <CARTONQTYPERORDER>4</CARTONQTYPERORDER>
+      <SYSTEMQTYPERORDER>2</SYSTEMQTYPERORDER>
+      <GROSSWTPERORDER>20</GROSSWTPERORDER>
+      <VOLWTPERORDER>16</VOLWTPERORDER>
+      <CARRIERCODE>D</CARRIERCODE>
+      <DIRECT>N</DIRECT>
+      <TIES>
+        <TIE>
+          <TIENUMBER>1</TIENUMBER>
+          <LOBCODE>4ST</LOBCODE>
+          <RetailFlag>N</RetailFlag>
+          <ACTDES>PowerVault (Storage)</ACTDES>
+          <SYSTEMQTYPERTIE>0</SYSTEMQTYPERTIE>
+          <CARTONQTYPERTIE>2</CARTONQTYPERTIE>
+          <GROSSWTPERTIE>10</GROSSWTPERTIE>
+          <VOLWTPERTIE>8</VOLWTPERTIE>
+          <TIEQTY>1</TIEQTY>
+          <TIEATTRIBS>
+            <Attrib Name="PT_ORDER" Value="Y" />
+          </TIEATTRIBS>
+          <ITEMS>
+            <ITEM>
+              <ITEMNUMBER>RKH5D</ITEMNUMBER>
+              <ITEMQTY>10</ITEMQTY>
+              <MOD>NDRC0</MOD>
+              <ITEMDES>MOD,TAPE,MGNTC,LTO7,5PK</ITEMDES>
+              <ENMARKETINGDESC>Dell(TM) Media Tape Cartridge (50-Pack) for LTO7</ENMARKETINGDESC>
+              <TYPE>INVOICE</TYPE>
+              <PRICE>0</PRICE>
+            </ITEM>
+            <ITEM>
+              <ITEMNUMBER>NDRC0</ITEMNUMBER>
+              <ITEMQTY>10</ITEMQTY>
+              <ITEMDES>MOD,TAPE,MGNTC,LTO7,5PK</ITEMDES>
+              <ENMARKETINGDESC>Dell(TM) Media Tape Cartridge (50-Pack) for LTO7</ENMARKETINGDESC>
+              <TYPE>BASE</TYPE>
+              <PRICE>0</PRICE>
+            </ITEM>
+          </ITEMS>
+        </TIE>
+        <TIE>
+          <TIENUMBER>2</TIENUMBER>
+          <LOBCODE>4ST</LOBCODE>
+          <RetailFlag>N</RetailFlag>
+          <ACTDES>PowerVault (Storage)</ACTDES>
+          <SYSTEMQTYPERTIE>0</SYSTEMQTYPERTIE>
+          <CARTONQTYPERTIE>2</CARTONQTYPERTIE>
+          <GROSSWTPERTIE>10</GROSSWTPERTIE>
+          <VOLWTPERTIE>8</VOLWTPERTIE>
+          <TIEQTY>1</TIEQTY>
+          <TIEATTRIBS>
+            <Attrib Name="PT_ORDER" Value="Y" />
+          </TIEATTRIBS>
+          <ITEMS>
+            <ITEM>
+              <ITEMNUMBER>5Y6RT</ITEMNUMBER>
+              <ITEMQTY>10</ITEMQTY>
+              <ITEMDES>MOD,TAPE,MGNTC,LTO5,5PK</ITEMDES>
+              <ENMARKETINGDESC>Dell(TM) Media Tape Cartridge (50-Pack) for LTO5</ENMARKETINGDESC>
+              <TYPE>BASE</TYPE>
+              <PRICE>0</PRICE>
+            </ITEM>
+            <ITEM>
+              <ITEMNUMBER>FHMTN</ITEMNUMBER>
+              <ITEMQTY>10</ITEMQTY>
+              <MOD>5Y6RT</MOD>
+              <ITEMDES>MOD,TAPE,MGNTC,LTO5,5PK</ITEMDES>
+              <ENMARKETINGDESC>Dell(TM) Media Tape Cartridge (50-Pack) for LTO5</ENMARKETINGDESC>
+              <TYPE>INVOICE</TYPE>
+              <PRICE>0</PRICE>
+            </ITEM>
+          </ITEMS>
+        </TIE>
+      </TIES>
+    </ORDER>
+  </ORDERS>
+Order2.Xml
+<ORDERS>
+      <ORDER>
+      <CUSID>0</CUSID>
+      <CUSADDRESS>Unit A , 21/F , Phase III, YKK Building,No.7, San Ping Circuit, Tuen Mun, New Territories, Hong Kong</CUSADDRESS>
+      <CUSCOUNTRY>HK</CUSCOUNTRY>
+      <CUSNAME>5439</CUSNAME>
+      <ORDERNUM>810000510</ORDERNUM>
+      <CITY>XMHK</CITY>
+      <SHIPDATE>2017-09-06 02:58:35</SHIPDATE>
+      <CARTONQTYPERORDER>4</CARTONQTYPERORDER>
+      <SYSTEMQTYPERORDER>0</SYSTEMQTYPERORDER>
+      <GROSSWTPERORDER>20</GROSSWTPERORDER>
+      <VOLWTPERORDER>16</VOLWTPERORDER>
+      <CARRIERCODE>D</CARRIERCODE>
+      <DIRECT>N</DIRECT>
+      <TIES>
+      <TIE>
+      <TIENUMBER>2</TIENUMBER>
+      <LOBCODE>4ST</LOBCODE>
+      <RetailFlag>N</RetailFlag>
+      <ACTDES>DELL STORAGE OEM</ACTDES>
+      <SYSTEMQTYPERTIE>0</SYSTEMQTYPERTIE>
+      <CARTONQTYPERTIE>2</CARTONQTYPERTIE>
+      <GROSSWTPERTIE>10</GROSSWTPERTIE>
+      <VOLWTPERTIE>8</VOLWTPERTIE>
+      <TIEQTY>1</TIEQTY>
+      <TIEATTRIBS>
+      <Attrib Name="PT_ORDER" Value="Y" />
+      </TIEATTRIBS>
+      <ITEMS>
+      <ITEM>
+      <ITEMNUMBER>FHMTN</ITEMNUMBER>
+      <ITEMQTY>10</ITEMQTY>
+      <ITEMDES>MOD,TAPE,MGNTC,LTO5,5PK</ITEMDES>
+      <ENMARKETINGDESC>Dell(TM) Media Tape Cartridge (50-Pack) for LTO5</ENMARKETINGDESC>
+      <TYPE>INVOICE</TYPE>
+      <PRICE>0</PRICE>
+      </ITEM>
+      <ITEM>
+      <ITEMNUMBER>5Y6RT</ITEMNUMBER>
+      <ITEMQTY>10</ITEMQTY>
+      <ITEMDES>MOD,TAPE,MGNTC,LTO5,5PK</ITEMDES>
+      <ENMARKETINGDESC>Dell(TM) Media Tape Cartridge (50-Pack) for LTO5</ENMARKETINGDESC>
+      <TYPE>BASE</TYPE>
+      <PRICE>0</PRICE>
+      </ITEM>
+      <ITEM>
+      <ITEMNUMBER>FHMTN</ITEMNUMBER>
+      <ITEMQTY>10</ITEMQTY>
+      <MOD>5Y6RT</MOD>
+      <ITEMDES>MOD,TAPE,MGNTC,LTO5,5PK</ITEMDES>
+      <TYPE>INVOICE</TYPE>
+      <PRICE>0</PRICE>
+      </ITEM>
+      </ITEMS>
+      <DEVIATIONS>
+      <ITEMS />
+      </DEVIATIONS>
+      </TIE>
+      <TIE>
+      <TIENUMBER>1</TIENUMBER>
+      <LOBCODE>4ST</LOBCODE>
+      <RetailFlag>N</RetailFlag>
+      <ACTDES>DELL STORAGE OEM</ACTDES>
+      <SYSTEMQTYPERTIE>0</SYSTEMQTYPERTIE>
+      <CARTONQTYPERTIE>2</CARTONQTYPERTIE>
+      <GROSSWTPERTIE>10</GROSSWTPERTIE>
+      <VOLWTPERTIE>8</VOLWTPERTIE>
+      <TIEQTY>1</TIEQTY>
+      <TIEATTRIBS>
+      <Attrib Name="PT_ORDER" Value="Y" />
+      </TIEATTRIBS>
+      <ITEMS>
+      <ITEM>
+      <ITEMNUMBER>RKH5D</ITEMNUMBER>
+      <ITEMQTY>10</ITEMQTY>
+      <ITEMDES>MOD,TAPE,MGNTC,LTO7,5PK</ITEMDES>
+      <ENMARKETINGDESC>Dell(TM) Media Tape Cartridge (50-Pack) for LTO7</ENMARKETINGDESC>
+      <TYPE>INVOICE</TYPE>
+      <PRICE>0</PRICE>
+      </ITEM>
+      <ITEM>
+      <ITEMNUMBER>NDRC0</ITEMNUMBER>
+      <ITEMQTY>10</ITEMQTY>
+      <ITEMDES>MOD,TAPE,MGNTC,LTO7,5PK</ITEMDES>
+      <ENMARKETINGDESC>Dell(TM) Media Tape Cartridge (50-Pack) for LTO7</ENMARKETINGDESC>
+      <TYPE>BASE</TYPE>
+      <PRICE>0</PRICE>
+      </ITEM>
+      <ITEM>
+      <ITEMNUMBER>RKH5D</ITEMNUMBER>
+      <ITEMQTY>10</ITEMQTY>
+      <MOD>NDRC0</MOD>
+      <ITEMDES>MOD,TAPE,MGNTC,LTO7,5PK</ITEMDES>
+      <TYPE>INVOICE</TYPE>
+      <PRICE>0</PRICE>
+      </ITEM>
+      </ITEMS>
+      <DEVIATIONS>
+      <ITEMS />
+      </DEVIATIONS>
+      </TIE>
+      </TIES>
+      </ORDER>
+      </ORDERS>
